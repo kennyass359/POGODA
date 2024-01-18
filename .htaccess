@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.chebweath\.ru [NC]
+RewriteRule ^(.*)$ https://chebweath.ru/$1 [L,R=301]
