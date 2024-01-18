@@ -1,3 +1,11 @@
-RewriteEngine On
-RewriteCond %{HTTP_HOST} ^www\.chebweath\.ru [NC]
-RewriteRule ^(.*)$ https://chebweath.ru/$1 [L,R=301]
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Перенаправление с www на без www
+  RewriteCond %{HTTP_HOST} ^www\.chebweath\.netlify\.app [NC]
+  RewriteRule ^(.*)$ https://chebweath.netlify.app/$1 [L,R=301]
+
+  # Перенаправление с HTTP на HTTPS
+  RewriteCond %{HTTPS} off
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
