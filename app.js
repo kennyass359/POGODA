@@ -141,3 +141,16 @@ function updateMap(latitude, longitude) {
     const mainNav = document.getElementById("mainNav");
     mainNav.classList.toggle("show");
   }
+
+  function showPopup(title, content) {
+    document.getElementById("popup-title").textContent = title;
+    document.getElementById("popup-content").textContent = content;
+    document.getElementById("popup").style.display = "block";
+    document.body.style.overflow = "hidden"; // Disable scrolling
+  }
+  
+  function closePopup() {
+    document.getElementById("popup").style.display = "none";
+    document.body.style.overflow = "auto"; // Enable scrolling
+  }
+  
