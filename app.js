@@ -88,27 +88,28 @@ function updateMap(latitude, longitude) {
   
   
   
-  document.addEventListener("DOMContentLoaded", function () {
-    function initMap() {
-      // Координаты центра карты (например, Москва)
-      const center = [56.109693, 47.262652];
-  
-      // Создание карты
-      const map = L.map("map").setView(center, 12);
-  
-      // Добавление слоя с картой OpenStreetMap
-      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        attribution: "© OpenStreetMap contributors",
-        maxZoom: 18,
-      }).addTo(map);
-  
-      // Создание маркера на карте
-      L.marker(center).addTo(map).bindPopup("Наш офис").openPopup();
-    }
-  
-    // Инициализация карты после загрузки страницы
-    initMap();
-  });
+document.addEventListener("DOMContentLoaded", function () {
+  function initMap() {
+    // Координаты центра карты (например, Москва)
+    const center = [56.109693, 47.262652];
+
+    // Создание карты
+    const map = L.map("map").setView(center, 12);
+
+    // Добавление слоя с картой OpenStreetMap
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution: "© OpenStreetMap contributors",
+      maxZoom: 18,
+    }).addTo(map);
+
+    // Создание маркера на карте
+    L.marker(center).addTo(map).bindPopup("Наш офис").openPopup();
+  }
+
+  // Инициализация карты после загрузки страницы
+  initMap();
+});
+
   
   let currentSlide = 0;
   const slides = document.querySelectorAll(".slide");
@@ -156,6 +157,10 @@ function updateMap(latitude, longitude) {
     document.getElementById("popup").style.display = "none";
     document.body.style.overflow = "auto"; // Enable scrolling
   }
+
+
+
+
 
   
   
