@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <style>
     body {
-      background-color: #f5f1e8;
+      background-color: #fef8e7; /* Бежевый цвет как на скрине */
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
@@ -14,10 +14,9 @@
     }
     .container {
       max-width: 400px;
-      margin: 0 auto;
+      margin: 50px auto; /* Центрируем контейнер и добавляем отступ сверху */
       padding: 20px;
-      background-color: #ffffff;
-      border-radius: 10px;
+      background-color: #fef8e7; /* Фон такого же бежевого цвета */
       text-align: center;
     }
     .header {
@@ -53,7 +52,6 @@
       margin-top: 20px;
     }
     .ticket-info {
-      background-color: #f5f1e8;
       padding: 10px;
       border-radius: 10px;
     }
@@ -67,7 +65,7 @@
     </div>
 
     <div class="content">
-      <img src="https://www.nspk.ru/upload/resize_cache/iblock/3ec/320_0_2/3ec01171cfdfcfae7b36661f72de55d6.png" alt="СБП" width="100">
+      <img src="logo.svg" alt="СБП" width="100"> <!-- Лого заменено на logo.svg -->
       <p>Ваш проезд успешно оплачен!</p>
       <p>Чтобы сохранить реквизиты билета, нажмите кнопку «Скачать билет»</p>
 
@@ -122,9 +120,7 @@
       document.getElementById('time-since-payment').textContent = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
     }
 
-    // Обновляем время каждую секунду
-    setInterval(updateTimeSincePayment, 1000);
+    setInterval(updateTimeSincePayment, 1000); // Обновляем каждую секунду
   </script>
-
 </body>
 </html>
