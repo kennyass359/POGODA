@@ -1,104 +1,23 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Билет на троллейбус</title>
+<!doctype html>
+<html lang="ru" data-critters-container>
+  <head>
+    <meta charset="utf-8" />
+    <title>Оплата проезда</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            color: #333;
-            text-align: center;
-            padding: 20px;
-        }
-        .ticket {
-            background-color: #fff;
-            border: 2px solid #333;
-            padding: 20px;
-            display: inline-block;
-            width: 340px;
-        }
-        h2 {
-            color: #2f3e9e;
-        }
-        .ticket-data {
-            text-align: left;
-        }
-        .qr-code {
-            margin-top: 20px;
-        }
-        .logo {
-            width: 60px; /* Размер логотипа как на скриншоте */
-            display: block;
-            margin: 0 auto; /* Центрирование логотипа */
-            margin-bottom: 20px;
-        }
+      html,body{height:auto;min-height:100%}body{margin:0;box-sizing:border-box}@font-face{font-family:Circe;src:url(circe-bold-webfont.27529df664ce2f0e.woff2) format("woff2"),url(circe-bold-webfont.a6d441f673662776.woff) format("woff");font-weight:700;font-style:normal}@font-face{font-family:Circe;src:url(circe-regular-webfont.70e2ea4fb032224b.woff2) format("woff2"),url(circe-regular-webfont.01fbe67cb561e424.woff) format("woff");font-weight:400;font-style:normal}body{background-color:#f5f1e8;font-family:Circe,sans-serif}
     </style>
-</head>
-<body>
-
-    <div class="ticket">
-        <img src="logo.svg" alt="Логотип" class="logo">
-        <h2>Уведомление об оплате</h2>
-        <p>Ваш проезд успешно оплачен!</p>
-        <p>Серия билета: <strong>QR200260003243</strong></p>
-        <p>Номер билета: <strong>20240924164417000</strong></p>
-        <p>Дата/время поездки: <strong id="date-time"></strong></p>
-        <p>Троллейбус: <strong id="trolleybus"></strong></p>
-        <p>Т/C: <strong>789</strong></p>
-        <p>Стоимость: <strong>21.00 руб.</strong></p>
-        <p>С момента оплаты прошло: <span id="timer">00:00:00</span></p>
-        <div class="qr-code">
-            <img src="qr-code.png" alt="QR Code" width="150">
-        </div>
-    </div>
-
-    <script>
-        // Timer function to count from 0 when the page is loaded
-        function startTimer() {
-            let startTime = new Date();
-            setInterval(function() {
-                let now = new Date();
-                let elapsedTime = now - startTime;
-
-                let hours = Math.floor(elapsedTime / 3600000);
-                let minutes = Math.floor((elapsedTime % 3600000) / 60000);
-                let seconds = Math.floor((elapsedTime % 60000) / 1000);
-
-                document.getElementById("timer").textContent =
-                    String(hours).padStart(2, '0') + ":" +
-                    String(minutes).padStart(2, '0') + ":" +
-                    String(seconds).padStart(2, '0');
-            }, 1000);
-        }
-
-        // Function to set the current date and time for the ticket
-        function setCurrentDateTime() {
-            let now = new Date();
-            let day = String(now.getDate()).padStart(2, '0');
-            let month = String(now.getMonth() + 1).padStart(2, '0'); // Months are zero-indexed
-            let year = now.getFullYear();
-            let hours = String(now.getHours()).padStart(2, '0');
-            let minutes = String(now.getMinutes()).padStart(2, '0');
-            
-            let currentDateTime = `${day}.${month}.${year} ${hours}:${minutes}`;
-            document.getElementById('date-time').textContent = currentDateTime;
-        }
-
-        // Prompt the user for trolleybus number
-        window.onload = function() {
-            let trolleybusNumber = prompt("Введите номер троллейбуса:", "5");
-            if (trolleybusNumber != null && trolleybusNumber !== "") {
-                document.getElementById('trolleybus').textContent = trolleybusNumber;
-            } else {
-                document.getElementById('trolleybus').textContent = "Не указано";
-            }
-
-            setCurrentDateTime(); // Set current date and time
-            startTimer(); // Start the timer after the prompt
-        };
-    </script>
-
-</body>
+    <style>
+      html,body{height:auto;min-height:100%}body{margin:0;box-sizing:border-box}div{box-sizing:border-box}@font-face{font-family:Circe;src:url("https://qr.bilet.nspk.ru/circe-bold-webfont.27529df664ce2f0e.woff2") format("woff2"),url("https://qr.bilet.nspk.ru/circe-bold-webfont.a6d441f673662776.woff") format("woff");font-weight:700;font-style:normal}@font-face{font-family:Circe;src:url("https://qr.bilet.nspk.ru/circe-regular-webfont.70e2ea4fb032224b.woff2") format("woff2"),url("https://qr.bilet.nspk.ru/circe-regular-webfont.01fbe67cb561e424.woff") format("woff");font-weight:400;font-style:normal}body{background-color:#f5f1e8;font-family:Circe,sans-serif}.loader{display:block;position:absolute;overflow:hidden;width:100%;height:100%;left:0;top:0;background:#F5F1E8;z-index:1000}.loader_mini{position:relative;height:8px}.loader__line{display:flex;flex-wrap:nowrap;justify-content:space-between;position:relative;width:100%;height:8px}.loader__line span{display:block;position:absolute;height:8px;animation:loaderPart1 1.3s linear infinite}.loader__line span:nth-child(1){width:6%;background:#0698D6;left:0;animation-name:loaderPart1}.loader__line span:nth-child(2){width:11%;background:#78B72A;left:6%;animation-name:loaderPart2}.loader__line span:nth-child(3){width:13%;background:#00853F;left:17%;animation-name:loaderPart3}.loader__line span:nth-child(4){width:16%;background:#F9B429;left:30%;animation-name:loaderPart4}.loader__line span:nth-child(5){width:16%;background:#EF8019;left:46%;animation-name:loaderPart5}.loader__line span:nth-child(6){width:16%;background:#E40646;left:62%;animation-name:loaderPart6}.loader__line span:nth-child(7){width:14%;background:#8F4794;left:78%;animation-name:loaderPart7}.loader__line span:nth-child(8){width:8%;background:#5B57A2;left:92%;animation-name:loaderPart8}.loader__text{text-align:center;color:#1d1346;font-size:18px;line-height:24px}@keyframes loaderPart1{0%{left:0;width:6%}25%{left:26%;width:11%}50%{left:56%;width:16%}75%{left:92%;width:16%}80%{left:100%;width:16%;opacity:1}81%{left:100%;width:6%;opacity:0}82%{left:-6%;width:6%;opacity:0}83%{opacity:1}to{left:0;width:6%}}@keyframes loaderPart2{0%{left:6%;width:11%}25%{left:37%;width:16%}50%{left:72%;width:12%}75%{left:106%;width:12%;opacity:1}76%{left:106%;width:6%;opacity:1}77%{left:106%;width:6%;opacity:0}78%{left:-6%;width:6%;opacity:0}79%{left:-6%;width:6%;opacity:1}to{left:6%;width:11%}}@keyframes loaderPart3{0%{left:17%;width:13%}25%{left:53%;width:16%}50%{left:84%;width:13%}75%{left:114%;width:8%;opacity:1}76%{left:114%;width:8%;opacity:0}77%{left:-8%;width:13%;opacity:0}78%{left:-8%;width:13%;opacity:1}to{left:17%;width:13%}}@keyframes loaderPart4{0%{left:30%;width:16%}25%{left:69%;width:14%}50%{left:97%;width:10%}70%{left:112%;width:10%;opacity:1}71%{left:122%;width:6%;opacity:0}72%{left:-4%;width:4%;opacity:0}73%{left:-4%;width:4%;opacity:1}77%{left:0;width:6%}to{left:30%;width:16%}}@keyframes loaderPart5{0%{left:46%;width:16%}25%{left:83%;width:16%}50%{left:107%;width:16%}55%{left:102%;width:10%;opacity:1}56%{left:122%;width:10%;opacity:0}57%{left:-6%;width:6%;opacity:0}58%{left:-6%;width:6%;opacity:1}74%{left:0;width:6%}to{left:46%;width:16%}}@keyframes loaderPart6{0%{left:62%;width:16%}25%{left:99%;width:12%}50%{left:107%;width:8%;opacity:1}51%{left:107%;width:6%;opacity:0}52%{left:-6%;width:6%;opacity:0}53%{left:-6%;width:6%;opacity:1}72%{left:0;width:6%}to{left:62%;width:16%}}@keyframes loaderPart7{0%{left:78%;width:14%}25%{left:110%;width:8%}50%{left:115%;width:8%;opacity:1}51%{left:115%;width:6%;opacity:0}52%{left:-6%;width:6%;opacity:0}53%{left:-6%;width:6%;opacity:1}70%{left:0;width:6%}to{left:78%;width:14%}}@keyframes loaderPart8{0%{left:92%;width:8%}25%{left:118%;width:6%;opacity:1}26%{left:118%;width:6%;opacity:0}27%{left:-6%;width:6%;opacity:0}28%{left:-6%;width:6%;opacity:1}68%{left:0;width:6%}to{left:92%;width:8%}}.wrapper{width:100%;height:auto;display:block;position:relative}header{height:56px;background:#1D1346;display:flex;justify-content:center;align-items:center;padding:20px;box-sizing:border-box}header h1{color:#fff}h1{font-weight:700;font-size:20px;line-height:24px;margin:0;padding:0}.text-block_text-align_center{text-align:center}.text-block_text-align_left{text-align:left}.text-block_color_green{color:#78b72a}.text-block_color_red{color:#e40646}.text-block_margin-bottom_39{margin-bottom:39px}.text-block_margin-bottom_16{margin-bottom:16px}.text-block p{font-size:18px;line-height:24px;color:#1d1346;margin:0}.text-block h3{font-size:24px;line-height:24px;font-weight:700}.more-info-link{font-size:14px;line-height:16px;-webkit-text-decoration:underline #1D1346 dotted;text-decoration:underline #1D1346 dotted;text-underline-offset:3px}.input-switch{display:flex;cursor:pointer;align-items:center}.input-switch_justify-content_center{justify-content:center}.input-switch input{display:none}.input-switch__track{display:block;position:relative;width:34px;height:14px;border-radius:7px;background:rgba(181,181,181,.38);transition:all .12s ease-in}.input-switch__handle{display:block;position:absolute;width:20px;height:20px;background:#B5B5B5;border-radius:50%;transform:translateY(-3px);left:0;transition:all .12s ease-in}.input-switch_checked .input-switch__handle{left:14px;background:#78B72A;transition-timing-function:ease-out}.input-switch_checked .input-switch__track{background:rgba(120,183,42,.38)}.input-switch label{color:#1d1346;font-weight:700;font-size:18px;line-height:24px;margin-right:12px}.input-text{display:block;position:relative;width:100%;height:48px}.input-text input{font-family:Circe,sans-serif;display:block;position:relative;width:100%;height:48px;background:#fff;border:none;outline:none;border-radius:4px 4px 0 0;padding:22px 16px 6px;box-sizing:border-box;font-size:16px;line-height:16px;color:#1d1346;transition:all .14s ease}.input-text label{display:block;position:absolute;left:16px;top:50%;transform:translateY(-50%);font-size:18px;line-height:18px;color:#b1b9cf;transition:all .14s ease}.input-text input:focus,.input-text input.filled{box-shadow:inset 0 -1px 1px #b1b9cf}.input-text input:focus+label,.input-text input.filled+label{transform:translateY(0);top:6px;font-size:12px;line-height:12px;color:#1d1346}.ng-touched.ng-invalid>.input-text input{color:#e40646}.ng-touched.ng-invalid>.input-text label{color:#e40646}.for-button{display:block;position:relative;overflow:hidden}.for-button button,.for-button a{display:block;position:relative;width:100%;height:48px;border:none;background:#78B72A;border-radius:8px;font-family:Circe,sans-serif;color:#fff;font-size:18px;line-height:48px;text-decoration:none;text-align:center}.for-button button:disabled,.for-button a:disabled{background:rgba(120,183,42,.38)}.for-button button.for-button__button_transparent,.for-button a.for-button__button_transparent{background:transparent;color:#0698d6}.for-button button.for-button__button_transparent:disabled,.for-button a.for-button__button_transparent:disabled{background:transparent;opacity:.5}.for-button button.for-button__button_background-color_dark,.for-button a.for-button__button_background-color_dark{background-color:#1d1346}.ripple{display:block;position:absolute;z-index:1;border-radius:50%;background:rgba(0,0,0,.2);transform:scale(0);animation:ripple 0s linear}@keyframes ripple{to{opacity:0;transform:scale(2.5)}}.input-error-block{padding:0 0 0 16px}.input-error-block p{margin:0;padding:0;color:#e40646;font-size:12px;line-height:12px}.pop-up{display:block;position:fixed;bottom:0;left:0;right:0;background-color:#f5f1e8;border-radius:8px 8px 0 0;padding:24px 16px;z-index:110;transform:translateY(100%);transition:all .2s ease}.pop-up_visible{transform:translateY(0)}.pop-up__content{text-align:center;font-size:14px;line-height:20px;font-weight:700;margin-bottom:16px}.overlay{z-index:100;display:block;position:fixed;background:#1D1346;opacity:0;inset:0;transition:all .2s ease}.overlay_visible{opacity:.5}.modal-overlay{background:rgba(0,0,0,.3);display:block;position:fixed;inset:0;opacity:0;transition:opacity .15s linear;z-index:-1}.modal-overlay_opened{z-index:1000;opacity:1}.modal-overlay_closing{opacity:1;z-index:1000}.modal-wrapper{display:block;position:fixed;inset:0;opacity:0;transform:scale(0);transition:opacity .15s ease-in,transform .15s ease-in;z-index:-1}.modal-wrapper_opened{z-index:1010;opacity:1;transform:scale(1)}.modal-wrapper_opened_closing{z-index:1010;transition-timing-function:ease-out;transition-duration:.06s}.modal{display:block;position:absolute;background-color:#fff;width:96%;left:2%;top:50%;transform:translateY(-50%);padding:24px;border-radius:2px;box-shadow:0 10px 30px #00000080}.modal__header{position:relative;margin-bottom:24px;font-size:19px;font-weight:700;text-align:left}.modal__content p{margin-top:16px}.modal__content p:first-child{margin-top:0}.modal__controls{margin-top:24px}
+    </style>
+    <noscript><link rel="stylesheet" href="styles.a60e15fe32b901e5.css" /></noscript>
+  </head>
+  <body>
+    <app-root></app-root>
+    <script src="https://qr.bilet.nspk.ru/runtime.8a90d68ab148f25b.js" type="module"></script>
+    <script src="https://qr.bilet.nspk.ru/polyfills.789a25bc02112d11.js" type="module"></script>
+    <script src="https://qr.bilet.nspk.ru/main.a70311ba595ff04c.js" type="module"></script>
+  </body>
 </html>
