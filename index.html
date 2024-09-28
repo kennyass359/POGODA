@@ -17,7 +17,7 @@
             border: 2px solid #333;
             padding: 20px;
             display: inline-block;
-            width: 300px;
+            width: 340px;
         }
         h2 {
             color: #2f3e9e;
@@ -28,16 +28,23 @@
         .qr-code {
             margin-top: 20px;
         }
+        .logo {
+            width: 60px; /* Размер логотипа как на скриншоте */
+            display: block;
+            margin: 0 auto; /* Центрирование логотипа */
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
 
     <div class="ticket">
+        <img src="logo.svg" alt="Логотип" class="logo">
         <h2>Уведомление об оплате</h2>
         <p>Ваш проезд успешно оплачен!</p>
         <p>Серия билета: <strong>QR200260003243</strong></p>
         <p>Номер билета: <strong>20240924164417000</strong></p>
-        <p>Дата/время поездки: <strong id="date-time">24.09.2024</strong></p>
+        <p>Дата/время поездки: <strong id="date-time"></strong></p>
         <p>Троллейбус: <strong id="trolleybus"></strong></p>
         <p>Т/C: <strong>789</strong></p>
         <p>Стоимость: <strong>21.00 руб.</strong></p>
@@ -66,6 +73,19 @@
             }, 1000);
         }
 
+        // Function to set the current date and time for the ticket
+        function setCurrentDateTime() {
+            let now = new Date();
+            let day = String(now.getDate()).padStart(2, '0');
+            let month = String(now.getMonth() + 1).padStart(2, '0'); // Months are zero-indexed
+            let year = now.getFullYear();
+            let hours = String(now.getHours()).padStart(2, '0');
+            let minutes = String(now.getMinutes()).padStart(2, '0');
+            
+            let currentDateTime = `${day}.${month}.${year} ${hours}:${minutes}`;
+            document.getElementById('date-time').textContent = currentDateTime;
+        }
+
         // Prompt the user for trolleybus number
         window.onload = function() {
             let trolleybusNumber = prompt("Введите номер троллейбуса:", "5");
@@ -75,6 +95,7 @@
                 document.getElementById('trolleybus').textContent = "Не указано";
             }
 
+            setCurrentDateTime(); // Set current date and time
             startTimer(); // Start the timer after the prompt
         };
     </script>
