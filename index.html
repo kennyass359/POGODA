@@ -5,40 +5,96 @@
   <title>Уведомление об оплате</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <style>
-    body { background-color: #f5f1e8; font-family: sans-serif; }
-    .content { padding: 20px; }
-    .trip-details { margin-bottom: 20px; }
-    .qrcode { margin-top: 20px; }
+    body {
+      background-color: #f5f1e8;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      text-align: center;
+    }
+    .header {
+      background-color: #2e2c58;
+      color: white;
+      padding: 10px;
+      border-radius: 10px 10px 0 0;
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 20px;
+    }
+    .content {
+      padding: 20px;
+    }
+    .content p {
+      margin: 10px 0;
+      font-size: 16px;
+    }
+    .content strong {
+      font-weight: bold;
+    }
+    .qrcode {
+      margin: 20px 0;
+    }
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #8bc34a;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+    .ticket-info {
+      background-color: #f5f1e8;
+      padding: 10px;
+      border-radius: 10px;
+    }
   </style>
 </head>
 <body>
-  <div class="content">
-    <h1>Уведомление об оплате</h1>
-    <div class="trip-details">
-      <p>Серия билета: <strong>QR200260003243</strong></p>
-      <p>Номер билета: <strong>20240924164417000</strong></p>
-      <p>Дата/время поездки: <strong id="trip-date"></strong></p>
-      <p>Троллейбус: <strong id="trolley-number"></strong></p>
-      <p>Т/С: <strong>789</strong></p>
-      <p>Стоимость: <strong>21.00 руб.</strong></p>
+
+  <div class="container">
+    <div class="header">
+      <h1>Уведомление об оплате</h1>
     </div>
 
-    <div class="text-block text-block_text-align_center">
-      <p>С момента оплаты прошло: <br><strong id="time-since-payment"></strong></p>
-    </div>
+    <div class="content">
+      <img src="https://www.nspk.ru/upload/resize_cache/iblock/3ec/320_0_2/3ec01171cfdfcfae7b36661f72de55d6.png" alt="СБП" width="100">
+      <p>Ваш проезд успешно оплачен!</p>
+      <p>Чтобы сохранить реквизиты билета, нажмите кнопку «Скачать билет»</p>
 
-    <div class="qrcode">
-      <p>QR-код билета для предъявления контролеру</p>
-      <canvas width="1430" height="1430"></canvas> <!-- Тут можно вставить генерацию QR-кода -->
-    </div>
+      <div class="ticket-info">
+        <p>Серия билета: <strong>QR200260003243</strong></p>
+        <p>Номер билета: <strong>20240924164417000</strong></p>
+        <p>Дата/время поездки: <strong id="trip-date"></strong></p>
+        <p>Троллейбус: <strong id="trolley-number"></strong></p>
+        <p>Т/С: <strong>789</strong></p>
+        <p>Стоимость: <strong>21.00 руб.</strong></p>
+      </div>
 
-    <div class="ticket__button">
-      <button>Скачать билет</button>
+      <div>
+        <p>С момента оплаты прошло:<br><strong id="time-since-payment">00:00:00</strong></p>
+      </div>
+
+      <div class="qrcode">
+        <img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=Ticket_20240924164417000&choe=UTF-8" alt="QR-код" width="200">
+        <p>QR-код билета для предъявления контролеру</p>
+      </div>
+
+      <a href="#" class="button">Скачать билет</a>
     </div>
   </div>
 
   <script>
-    // 1. Динамическая дата и время поездки
+    // Динамическая дата и время поездки
     const tripDateElement = document.getElementById('trip-date');
     const now = new Date();
     tripDateElement.textContent = now.toLocaleString('ru-RU', {
@@ -49,12 +105,12 @@
       minute: '2-digit'
     });
 
-    // 2. Номер троллейбуса через prompt
+    // Номер троллейбуса через prompt
     const trolleyNumber = prompt("Введите номер троллейбуса:");
     document.getElementById('trolley-number').textContent = trolleyNumber || 'Не указан';
 
-    // 3. Динамическое время с момента оплаты
-    const paymentTime = new Date(); // Тут задаём момент оплаты
+    // Время с момента оплаты
+    const paymentTime = new Date(); // Момент оплаты
     function updateTimeSincePayment() {
       const now = new Date();
       const diff = now - paymentTime;
@@ -63,11 +119,12 @@
       const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-      document.getElementById('time-since-payment').textContent = `${hours}:${minutes}:${seconds}`;
+      document.getElementById('time-since-payment').textContent = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
     }
 
-    // Обновляем время каждые секунды
+    // Обновляем время каждую секунду
     setInterval(updateTimeSincePayment, 1000);
   </script>
+
 </body>
 </html>
