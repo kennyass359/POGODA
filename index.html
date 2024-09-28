@@ -1,31 +1,73 @@
 <!DOCTYPE html>
-<!-- saved from url=(0080)https://qr.bilet.nspk.ru/result?operationid=25902668-0192-f000-c651-e1b5a711e4f4 -->
-<html lang="ru" data-critters-container=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
   <title>Уведомление об оплате</title>
-  <!--<base href="/">--><base href=".">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <link rel="icon" type="image/x-icon" href="https://qr.bilet.nspk.ru/favicon.ico">
-<style>html,body{height:auto;min-height:100%}body{margin:0;box-sizing:border-box}@font-face{font-family:Circe;src:url(circe-bold-webfont.27529df664ce2f0e.woff2) format("woff2"),url(circe-bold-webfont.a6d441f673662776.woff) format("woff");font-weight:700;font-style:normal}@font-face{font-family:Circe;src:url(circe-regular-webfont.70e2ea4fb032224b.woff2) format("woff2"),url(circe-regular-webfont.01fbe67cb561e424.woff) format("woff");font-weight:400;font-style:normal}body{background-color:#f5f1e8;font-family:Circe,sans-serif}</style><link rel="stylesheet" href="./Уведомление об оплате_files/styles.a60e15fe32b901e5.css" media="all" onload="this.media=&#39;all&#39;"><noscript><link rel="stylesheet" href="styles.a60e15fe32b901e5.css"></noscript><meta http-equiv="Content-Security-Policy" content="
-                default-src &#39;self&#39;  https://yastatic.net http://yastatic.net;
-                img-src * &#39;self&#39; data: https: https://mc.yandex.ru;
-                script-src https://mc.yandex.ru https://yastatic.net https://captcha-api.yandex.ru &#39;self&#39; &#39;nonce-687277&#39;;
-                connect-src &#39;self&#39; data: https://mc.yandex.ru;
-                style-src &#39;self&#39; &#39;unsafe-inline&#39; *;
-                "><script async="" src="./Уведомление об оплате_files/tag.js"></script><script nonce="687277" type="text/javascript">
-                    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-   m[i].l=1*new Date();
-   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+  <style>
+    body { background-color: #f5f1e8; font-family: sans-serif; }
+    .content { padding: 20px; }
+    .trip-details { margin-bottom: 20px; }
+    .qrcode { margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <h1>Уведомление об оплате</h1>
+    <div class="trip-details">
+      <p>Серия билета: <strong>QR200260003243</strong></p>
+      <p>Номер билета: <strong>20240924164417000</strong></p>
+      <p>Дата/время поездки: <strong id="trip-date"></strong></p>
+      <p>Троллейбус: <strong id="trolley-number"></strong></p>
+      <p>Т/С: <strong>789</strong></p>
+      <p>Стоимость: <strong>21.00 руб.</strong></p>
+    </div>
 
-   ym(95305900, "init", {
-        clickmap:true,
-        trackLinks:true,
-        accurateTrackBounce:true
-   });</script><style>.back-to-history-page-button[_ngcontent-ng-c1611979560]{margin-top:24px}.logo[_ngcontent-ng-c1611979560]{text-align:center;margin:16px 0}.content[_ngcontent-ng-c1611979560]{padding:0 16px}</style><style>.ticket[_ngcontent-ng-c3369423864]{margin-top:39px}.ticket__qrcode[_ngcontent-ng-c3369423864]{margin:31px 0;text-align:center}.ticket__button[_ngcontent-ng-c3369423864]{margin-bottom:32px}</style><style>.trip-details[_ngcontent-ng-c3367612953]{margin-bottom:35px}.trip-details_margin-bottom_8[_ngcontent-ng-c3367612953]{margin-bottom:8px}.display_block[_ngcontent-ng-c3367612953]{display:block}</style></head>
-<body><noscript><div><img style="position:absolute; left:-9999px;" alt="" src="./Уведомление об оплате_files/95305900"></div></noscript>
-  <app-root _nghost-ng-c2445345205="" ng-version="16.2.12"><router-outlet _ngcontent-ng-c2445345205=""></router-outlet><app-wrapper _nghost-ng-c1611979560=""><div _ngcontent-ng-c1611979560="" class="wrapper"><app-header _ngcontent-ng-c1611979560="" _nghost-ng-c814738787=""><header _ngcontent-ng-c814738787=""><h1 _ngcontent-ng-c814738787="">Уведомление об оплате</h1></header></app-header><!----><!----><div _ngcontent-ng-c1611979560="" class="logo"><img _ngcontent-ng-c1611979560="" src="./Уведомление об оплате_files/logo.svg" alt="Система Быстрых Платежей"></div><div _ngcontent-ng-c1611979560="" class="content"><router-outlet _ngcontent-ng-c1611979560=""></router-outlet><app-result _nghost-ng-c2992786782=""><div _ngcontent-ng-c2992786782="" class="text-block text-block_text-align_center"><p _ngcontent-ng-c2992786782="">Ваш проезд успешно оплачен!<br _ngcontent-ng-c2992786782="">Чтобы сохранить реквизиты билета, нажмите кнопку «Скачать билет»</p></div><app-ticket _ngcontent-ng-c2992786782="" _nghost-ng-c3369423864=""><div _ngcontent-ng-c3369423864="" class="ticket"><app-trip-details _ngcontent-ng-c3369423864="" _nghost-ng-c3367612953=""><div _ngcontent-ng-c3367612953="" class="trip-details text-block"><p _ngcontent-ng-c3367612953="">Серия билета: <!----><!----><strong _ngcontent-ng-c3367612953="">QR200260003243<!----><!----></strong></p><!----><p _ngcontent-ng-c3367612953="">Номер билета: <!----><!----><strong _ngcontent-ng-c3367612953="">20240924164417000<!----><!----></strong></p><!----><p _ngcontent-ng-c3367612953="">Дата/время поездки: <!----><!----><strong _ngcontent-ng-c3367612953=""> 24.09.2024 19:44 <!----><!----><!----></strong></p><!----><p _ngcontent-ng-c3367612953="">Троллейбус: <!----><!----><strong _ngcontent-ng-c3367612953="">5<!----><!----></strong></p><!----><p _ngcontent-ng-c3367612953="">Т/С: <!----><!----><strong _ngcontent-ng-c3367612953="">789<!----><!----></strong></p><!----><p _ngcontent-ng-c3367612953="">Стоимость: <!----><!----><strong _ngcontent-ng-c3367612953="">21.00 руб.<!----><!----></strong></p><!----><!----></div></app-trip-details><div _ngcontent-ng-c3369423864="" class="text-block text-block_text-align_center text-block_margin-bottom_14"><p _ngcontent-ng-c3369423864="">С момента оплаты прошло:<br _ngcontent-ng-c3369423864=""><strong _ngcontent-ng-c3369423864="">93:06:30</strong></p></div><div _ngcontent-ng-c3369423864="" class="text-block text-block_text-align_center"><p _ngcontent-ng-c3369423864="">QR-код билета для предъявления контролеру</p></div><div _ngcontent-ng-c3369423864="" class="ticket__qrcode"><qrcode _ngcontent-ng-c3369423864="" errorcorrectionlevel="L" arialabel="url" colorlight="#F5F1E8" elementtype="canvas" title="Билет"><div class="qrcode"><canvas height="1430" width="1430" aria-label="url" title="Билет" style="height: 1430px; width: 1430px;"></canvas></div></qrcode></div><div _ngcontent-ng-c3369423864="" class="ticket__button"><app-button _ngcontent-ng-c3369423864="" classname="tst_download_ticket"><div class="for-button"><button class="for-button__button tst_download_ticket">Скачать билет<!----></button><!----><!----></div><!----></app-button></div><!----></div></app-ticket><!----><!----><!----></app-result><!----></div></div></app-wrapper><!----></app-root>
-<script src="./Уведомление об оплате_files/runtime.8a90d68ab148f25b.js" type="module"></script><script src="./Уведомление об оплате_files/polyfills.789a25bc02112d11.js" type="module"></script><script src="./Уведомление об оплате_files/main.a70311ba595ff04c.js" type="module"></script>
+    <div class="text-block text-block_text-align_center">
+      <p>С момента оплаты прошло: <br><strong id="time-since-payment"></strong></p>
+    </div>
 
-</body></html>
+    <div class="qrcode">
+      <p>QR-код билета для предъявления контролеру</p>
+      <canvas width="1430" height="1430"></canvas> <!-- Тут можно вставить генерацию QR-кода -->
+    </div>
+
+    <div class="ticket__button">
+      <button>Скачать билет</button>
+    </div>
+  </div>
+
+  <script>
+    // 1. Динамическая дата и время поездки
+    const tripDateElement = document.getElementById('trip-date');
+    const now = new Date();
+    tripDateElement.textContent = now.toLocaleString('ru-RU', {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit'
+    });
+
+    // 2. Номер троллейбуса через prompt
+    const trolleyNumber = prompt("Введите номер троллейбуса:");
+    document.getElementById('trolley-number').textContent = trolleyNumber || 'Не указан';
+
+    // 3. Динамическое время с момента оплаты
+    const paymentTime = new Date(); // Тут задаём момент оплаты
+    function updateTimeSincePayment() {
+      const now = new Date();
+      const diff = now - paymentTime;
+
+      const hours = Math.floor(diff / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById('time-since-payment').textContent = `${hours}:${minutes}:${seconds}`;
+    }
+
+    // Обновляем время каждые секунды
+    setInterval(updateTimeSincePayment, 1000);
+  </script>
+</body>
+</html>
